@@ -12,11 +12,11 @@ const App = () => {
     <Router>
       <Header />
       <Switch>
-        <Route>
-          <Personnages />
-        </Route>
-        <Route>
+        <Route path="/comics">
           <Comics />
+        </Route>
+        <Route exact={true} path="/">
+          <Personnages />
         </Route>
       </Switch>
       <Footer />

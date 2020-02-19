@@ -3,11 +3,12 @@ import axios from "axios";
 import Items from "../components/Items";
 
 const Personnages = () => {
-  const [personnages, setPersonnages] = useState();
+  const [personnages, setPersonnages] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("http://localhost:3000");
+      console.log(response.data);
       setPersonnages(response.data.results);
     };
     fetchData();
@@ -15,7 +16,7 @@ const Personnages = () => {
 
   return (
     <div>
-      <Items {...personnages}></Items>
+      <Items personnages={personnages}></Items>
     </div>
   );
 };
