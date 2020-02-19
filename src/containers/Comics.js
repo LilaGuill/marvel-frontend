@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Items from "../components/Items";
+import Comic from "../components/Comic";
 import SearchBar from "../components/SearchBar";
 
 const Comics = () => {
@@ -10,11 +10,8 @@ const Comics = () => {
   const { id } = useParams();
 
   const fetchData = async id => {
-    const copyTab = [...comics];
     const response = await axios.post("http://localhost:3000/comics", { id });
-    console.log(Array.isArray(response.data.results));
-    const tab = copyTab.push(response.data.results);
-    setComics(tab);
+    setComics([...response.data.results]);
     setIsLoading(false);
   };
 
@@ -22,11 +19,14 @@ const Comics = () => {
     fetchData(id);
   }, [id]);
 
-  console.log("comics:", comics);
+  const listComics = comics.map((comic, index) => {
+    return <Comic key={index} {...comic} />;
+  });
+
   return (
     <div className="container">
       <SearchBar />
-      {isLoading ? <p>lOADING</p> : <div> item</div>}
+      {isLoading ? <p>lOADING</p> : <div>{listComics}</div>}
     </div>
   );
 };

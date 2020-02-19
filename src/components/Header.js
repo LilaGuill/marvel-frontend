@@ -11,6 +11,7 @@ const Header = () => {
             <li>Personnages</li>
             <li>Comics</li>
             <li>Favoris</li>
+            <li>Se connecter</li>
           </ul>
         </div>
       </div>
