@@ -32,6 +32,7 @@ const Personnages = () => {
         total={total}
         page={page}
         setIsLoading={setIsLoading}
+        itemsPerPage={100}
       />
       <p className="loading">{isLoading && "Chargement en cours ..."}</p>
       {listItem}

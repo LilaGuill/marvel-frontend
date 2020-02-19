@@ -1,10 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Pagination = ({ setPage, total, page, setIsLoading }) => {
+const Pagination = ({ setPage, total, page, setIsLoading, itemsPerPage }) => {
   const pagination = [];
 
-  let pagesToDisplay = Math.ceil(total / 100);
+  let pagesToDisplay = Math.ceil(total / itemsPerPage);
   for (let i = 1; i <= pagesToDisplay; i++) {
     pagination.push(
       <div
