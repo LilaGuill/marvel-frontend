@@ -12,7 +12,7 @@ const App = () => {
     <Router>
       <Header />
       <Switch>
-        <Route path="/comics">
+        <Route path="/comics/:id">
           <Comics />
         </Route>
         <Route exact={true} path="/">
