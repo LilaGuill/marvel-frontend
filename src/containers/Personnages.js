@@ -4,7 +4,7 @@ import Personnage from "../components/Personnage";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
 
-const Personnages = () => {
+const Personnages = ({ token }) => {
   const [page, setPage] = useState(1);
   const [personnages, setPersonnages] = useState([]);
   const [total, setTotal] = useState(0);

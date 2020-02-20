@@ -24,14 +24,14 @@ const Header = ({ setToken, setUsername, token, username }) => {
             <Link to={"/comics/" + 0}>
               <li>Comics</li>
             </Link>
-            <Link to="/favorite">
+            <Link to="/favorites">
               <li>Favoris</li>
             </Link>
             <Link to="/login">
               <div>
                 {token ? (
                   <li onClick={handleDeConnexion}>
-                    <span>{username} </span>
+                    <span>{username}</span>
                     Se déconnecter
                   </li>
                 ) : (

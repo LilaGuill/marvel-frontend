@@ -58,7 +58,7 @@ header .user {
   height: 60px;
 }
 
-header .user span {
+header span {
   text-transform: capitalize;
 }
 
@@ -74,7 +74,7 @@ header .user span {
   align-items: center;
   justify-content: center;
 }
-form {
+.wrapper-search form {
   width: 70%;
   height: 60px;
   display: flex;
@@ -92,7 +92,6 @@ form input {
   outline: none;
 }
 form button {
-  margin-left: 20px;
   width: 100px;
   line-height: 30px;
   border-radius: 5px;
@@ -204,6 +203,7 @@ form button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 5px;
 }
 .container-form input {
   width: 200px;

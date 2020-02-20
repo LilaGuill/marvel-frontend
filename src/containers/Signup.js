@@ -39,7 +39,8 @@ const Signup = ({ setToken }) => {
   };
   return (
     <div className="container-form">
-      <form onSubmit={handleSubmit}>
+      <h2>Inscrivez-vous</h2>
+      <form className="wrapper-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Votre nom"

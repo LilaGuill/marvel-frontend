@@ -13,17 +13,17 @@ const Comics = () => {
   const [total, setTotal] = useState(0);
   const { id } = useParams();
 
-  const fetchData = async id => {
-    const response = await axios.post("http://localhost:3000/comics", {
-      id,
-      page
-    });
-    setComics([...response.data.results]);
-    setIsLoading(false);
-    setTotal(response.data.total);
-  };
-
   useEffect(() => {
+    const fetchData = async id => {
+      const response = await axios.post("http://localhost:3000/comics", {
+        id,
+        page
+      });
+      setComics([...response.data.results]);
+      setIsLoading(false);
+      setTotal(response.data.total);
+    };
+
     fetchData(id);
   }, [id, page]);
 
