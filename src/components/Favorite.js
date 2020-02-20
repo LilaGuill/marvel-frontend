@@ -35,7 +35,7 @@ const Favorite = ({ id, name, description, imgSrc, type }) => {
     <div className="favorite">
       <FontAwesomeIcon
         icon="heart"
-        className="icon-red"
+        className="icon-heart"
         onClick={event => {
           handleFavorite();
         }}

@@ -3,6 +3,7 @@ import axios from "axios";
 import Personnage from "../components/Personnage";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
+import Loading from "../components/Loading";
 
 const Personnages = ({ token }) => {
   const [page, setPage] = useState(1);
@@ -39,8 +40,13 @@ const Personnages = ({ token }) => {
         setIsLoading={setIsLoading}
         itemsPerPage={100}
       />
-      <p className="loading">{isLoading && "Chargement en cours ..."}</p>
-      {listItem}
+      {isLoading ? (
+        <div className="container-loader">
+          <Loading />
+        </div>
+      ) : (
+        <div>{listItem}</div>
+      )}
     </div>
   );
 };

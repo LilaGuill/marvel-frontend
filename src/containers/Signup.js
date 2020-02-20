@@ -40,7 +40,7 @@ const Signup = ({ setToken }) => {
   return (
     <div className="container-form">
       <h2>Inscrivez-vous</h2>
-      <form className="wrapper-form" onSubmit={handleSubmit}>
+      <form className="wrapper-form-signup" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Votre nom"
@@ -79,7 +79,7 @@ const Signup = ({ setToken }) => {
         />
         <button type="submit">S'inscrire</button>
       </form>
-      <div>{message}</div>
+      <div className="form-message">{message}</div>
     </div>
   );
 };

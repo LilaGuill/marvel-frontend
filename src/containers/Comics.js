@@ -4,6 +4,7 @@ import axios from "axios";
 import Comic from "../components/Comic";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
+import Loading from "../components/Loading";
 
 const Comics = () => {
   console.log("page comics");
@@ -41,7 +42,14 @@ const Comics = () => {
         setIsLoading={setIsLoading}
         itemsPerPage={3000}
       />
-      {isLoading ? <p>lOADING</p> : <div>{listComics}</div>}
+      {isLoading ? (
+        <div className="container-loader">
+          <Loading />
+        </div>
+      ) : (
+        <div>{listComics}</div>
+      )}
+      div>}
     </div>
   );
 };

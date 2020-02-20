@@ -29,8 +29,10 @@ const Search = ({ personnages, setPersonnages, setTotal }) => {
 
   return (
     <div className="wrapper-search">
+      <h1>Quel personnage recherchez-vous ?</h1>
       <form onSubmit={handleSubmit}>
         <input
+          placeholder="Votre recherche"
           type="text"
           value={search}
           onChange={event => {

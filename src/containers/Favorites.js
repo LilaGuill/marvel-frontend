@@ -2,8 +2,12 @@ import React, { useEffect, useContext } from "react";
 import axios from "axios";
 import TokenContext from "../contexts/TokenContext";
 import { useState } from "react";
+import Loading from "../components/Loading";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router-dom";
 
 const Favorites = () => {
+  const history = useHistory();
   const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState("true");
   const token = useContext(TokenContext);
@@ -25,15 +29,58 @@ const Favorites = () => {
       }
     };
     fetchData(token);
-  }, [token]);
+  }, [token, favorites]);
 
-  console.log(favorites);
+  const handleRemove = async id => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/user/favorites/remove",
+        { id: id, token: token }
+      );
+
+      setFavorites([...response.data.favorites]);
+      history.push("/favorites");
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   const favoritesList = favorites.map((favorite, index) => {
-    return <div key={index}>{favorite.name}</div>;
+    return (
+      <div key={index} className="wrapper-list-item">
+        <div className="wrapper-list">
+          <img
+            className="image-list-item"
+            src={favorite.imgSrc}
+            alt={favorite.name}
+          ></img>
+          <div className="wrapper-detail">
+            <div className="item-title"> {favorite.name}</div>
+            <div className="item-paragraphe"> {favorite.description}</div>
+          </div>
+          <div className="favorite">
+            <FontAwesomeIcon icon="heart" className="icon-red" />
+            <span
+              onClick={() => {
+                handleRemove(favorite.id);
+              }}
+            >
+              Remove
+            </span>
+          </div>
+        </div>
+      </div>
+    );
   });
   return (
-    <div className="wrapper-list-item">
-      {isLoading ? favoritesList : "Loading"}
+    <div className="favorites-container">
+      {isLoading ? (
+        <div className="container-loader">
+          <Loading />
+        </div>
+      ) : (
+        <div>{favoritesList}</div>
+      )}
     </div>
   );
 };

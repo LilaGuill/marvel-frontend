@@ -30,18 +30,13 @@ const Header = ({ setToken, setUsername, token, username }) => {
             <Link to="/login">
               <div>
                 {token ? (
-                  <li onClick={handleDeConnexion}>
-                    <span>{username}</span>
-                    Se déconnecter
-                  </li>
+                  <li onClick={handleDeConnexion}>Se déconnecter</li>
                 ) : (
-                  <>
-                    <FontAwesomeIcon icon="user" />
-                    <li>Se connecter</li>
-                  </>
+                  <li>Se connecter</li>
                 )}
               </div>
             </Link>
+            <li className="header-user">{username}</li>
           </ul>
         </div>
       </div>

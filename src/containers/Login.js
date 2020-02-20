@@ -42,7 +42,7 @@ const Signin = ({ setToken, setUsername }) => {
   return (
     <div className="container-form">
       <h2>Connectez-vous</h2>
-      <form className="wrapper-form" onSubmit={handleSubmit}>
+      <form className="wrapper-form-login" onSubmit={handleSubmit}>
         <input
           placeholder="Votre email"
           id="email"
@@ -66,7 +66,7 @@ const Signin = ({ setToken, setUsername }) => {
         />
 
         <button type="submit">Se connecter</button>
-        <div>{message}</div>
+        <div className="form-message">{message}</div>
       </form>
       <hr></hr>
       <span>Vous n'avez pas de compte ?</span>

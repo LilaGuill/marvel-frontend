@@ -24,6 +24,7 @@ header {
   border-bottom: solid 1px rgb(232, 232, 232);
   width: 100%;
   background-color: white;
+  position: fixed;
 }
 
 .wrapper-header {
@@ -58,21 +59,26 @@ header .user {
   height: 60px;
 }
 
-header span {
+.header-user {
   text-transform: capitalize;
 }
 
 /*search */
 .wrapper-search {
-  height: 80px;
+  height: 150px;
   background-color: white;
   width: 60%;
-  margin: 20px auto;
+  margin: 100px auto 40px auto;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(202, 202, 202, 0.2);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+h1 {
+  font-size: 20px;
+  font-weight: bold;
 }
 .wrapper-search form {
   width: 70%;
@@ -83,27 +89,39 @@ header span {
 }
 form input {
   padding-left: 10px;
-  margin: auto;
+  margin: auto 10px;
   width: 90%;
-  line-height: 30px;
+  line-height: 40px;
   border-radius: 5px;
   border: none;
   background-color: rgb(241, 241, 241);
   outline: none;
+  font-size: 16px;
 }
 form button {
-  width: 100px;
-  line-height: 30px;
+  width: 150px;
+  line-height: 40px;
   border-radius: 5px;
   outline: none;
   border: none;
   background-color: rgb(221, 46, 46);
   color: white;
   cursor: pointer;
+  font-size: 16px;
 }
 form button:hover {
   opacity: 0.8;
   transition: 0.2s;
+}
+
+/* loader */
+.container-loader {
+  width: 80%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 /* pagination */
@@ -150,6 +168,11 @@ form button:hover {
   display: flex;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(202, 202, 202, 0.2);
+  flex-wrap: wrap;
+}
+.wrapper-list {
+  width: 90%;
+  display: flex;
 }
 .image-list-item {
   width: 250px;
@@ -159,7 +182,7 @@ form button:hover {
   border-radius: 5px 0 0 5px;
 }
 .wrapper-detail {
-  width: 600px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -180,41 +203,72 @@ form button:hover {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  width: 100px;
+  width: 40px;
   margin: 20px;
 }
-.icon-red {
+.icon-heart {
   font-size: 20px;
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
-.icon-red:hover {
+.icon-heart:hover {
   color: rgb(219, 28, 28);
   transition: 0.3s;
+}
+.icon-red {
+  color: rgb(219, 28, 28);
+  font-size: 20px;
 }
 /* signup */
 
 .container-form {
   width: 80%;
-  height: 300px;
+  height: 400px;
   background-color: white;
   box-shadow: 0 0 10px rgba(202, 202, 202, 0.2);
-  margin: 20px auto;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
 }
+.wrapper-form-login {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  margin: 0 auto;
+  align-items: center;
+}
+.wrapper-form-signup {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.container-form h2 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
+  margin-top: 20px;
+}
 .container-form input {
-  width: 200px;
+  width: 300px;
   padding-left: 10px;
+  font-size: 16px;
+  height: 40px;
+  margin-top: 10px;
 }
 
 .container-form button {
-  width: 200px;
+  width: 300px;
+  font-size: 16px;
+  height: 40px;
+  margin-top: 25px;
 }
 .form-second-btn {
-  width: 200px;
+  width: 300px;
   line-height: 40px;
   background-color: gray;
   color: white;
@@ -225,21 +279,24 @@ form button:hover {
   align-items: center;
 }
 .container-form hr {
-  width: 200px;
-  color: black;
+  margin: 25px auto;
+  width: 300px;
+  background-color: rgb(237, 237, 237);
 }
 .container-form a {
   color: white;
 }
-.wrapper-form {
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  height: 80%;
-  margin: 0 auto;
-  align-items: center;
+.form-message {
+  margin-top: 10px;
+  color: red;
+  font-weight: bold;
 }
+/* favorites */
 
+.favorites-container {
+  width: 70%;
+  margin: 100px auto;
+}
 footer {
   height: 60px;
   position: absolute;
