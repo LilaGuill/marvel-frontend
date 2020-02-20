@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = ({ setToken, setUsername, token }) => {
+const Header = ({ setToken, setUsername, token, username }) => {
   const handleDeConnexion = () => {
     //deconnexion
     Cookies.remove("token");
@@ -29,11 +29,16 @@ const Header = ({ setToken, setUsername, token }) => {
             </Link>
             <Link to="/login">
               <div>
-                <FontAwesomeIcon icon="user" />
                 {token ? (
-                  <span onClick={handleDeConnexion}>Se déconnecter</span>
+                  <li onClick={handleDeConnexion}>
+                    <span>{username} </span>
+                    Se déconnecter
+                  </li>
                 ) : (
-                  <span>Se connecter</span>
+                  <>
+                    <FontAwesomeIcon icon="user" />
+                    <li>Se connecter</li>
+                  </>
                 )}
               </div>
             </Link>

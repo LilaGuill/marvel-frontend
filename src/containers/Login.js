@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const Signin = ({ setToken }) => {
+const Signin = ({ setToken, setUsername }) => {
   let history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,10 +24,14 @@ const Signin = ({ setToken }) => {
 
       //enregistrement du token dans les cookies
       const token = response.data.token;
+      const username = response.data.account.username;
       Cookies.set("token", token, { expires: 7 });
+      Cookies.set("username", username, { expires: 7 });
 
       //mise a jour du state
       setToken(token);
+      setUsername(username);
+      console.log(username);
       //redirection vers la page home
       history.push("/");
     } else {
@@ -36,10 +40,8 @@ const Signin = ({ setToken }) => {
   };
 
   return (
-    <div>
-      <h2>Connexion</h2>
-      <hr></hr>
-      <form onSubmit={handleSubmit}>
+    <div className="container-form">
+      <form className="wrapper-form" onSubmit={handleSubmit}>
         <input
           placeholder="Votre email"
           id="email"
@@ -65,13 +67,12 @@ const Signin = ({ setToken }) => {
         <button type="submit">Se connecter</button>
         <div>{message}</div>
       </form>
-      <div>
-        <span>Vous n'avez pas de compte ?</span>
+      <hr></hr>
+      <span>Vous n'avez pas de compte ?</span>
 
-        <button>
-          <Link to="/signup">Créer un compte</Link>
-        </button>
-      </div>
+      <button className="form-second-btn">
+        <Link to="/signup">Créer un compte</Link>
+      </button>
     </div>
   );
 };

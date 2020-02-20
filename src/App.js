@@ -42,7 +42,7 @@ const App = () => {
           <Comics />
         </Route>
         <Route path="/login">
-          <Login setToken={setToken} />
+          <Login setToken={setToken} setUsername={setUsername} />
         </Route>
         <Route path="/signup">
           <Signup setToken={setToken} />

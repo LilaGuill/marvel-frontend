@@ -5,7 +5,7 @@ html {
 body {
   position: relative;
   background-color: rgb(241, 241, 241);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: rgb(20, 20, 22);
   width: 100%;
@@ -39,15 +39,27 @@ header {
 header ul {
   display: flex;
   cursor: pointer;
+  height: 60px;
 }
 header li {
   line-height: 60px;
   padding: 0 10px;
   transition: 0.3s;
+  font-size: 14px;
+  font-weight: bold;
 }
 header li:hover {
   background-color: rgb(233, 233, 233);
   transition: 0.2s;
+}
+header .user {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+}
+
+header .user span {
+  text-transform: capitalize;
 }
 
 /*search */
@@ -181,7 +193,54 @@ form button:hover {
   color: rgb(219, 28, 28);
   transition: 0.3s;
 }
-.icon footer {
+/* signup */
+
+.container-form {
+  width: 80%;
+  height: 300px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(202, 202, 202, 0.2);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-form input {
+  width: 200px;
+  padding-left: 10px;
+}
+
+.container-form button {
+  width: 200px;
+}
+.form-second-btn {
+  width: 200px;
+  line-height: 40px;
+  background-color: gray;
+  color: white;
+  margin: 20px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-form hr {
+  width: 200px;
+  color: black;
+}
+.container-form a {
+  color: white;
+}
+.wrapper-form {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  height: 80%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+footer {
   height: 60px;
   position: absolute;
   bottom: 0;

@@ -35,6 +35,7 @@ const Search = ({ personnages, setPersonnages, setTotal }) => {
           value={search}
           onChange={event => {
             setSearch(event.target.value);
+            setPersonnages(personnages);
           }}
         ></input>
         <button type="submit">Rechercher</button>
