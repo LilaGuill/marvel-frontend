@@ -1,8 +1,17 @@
 import React from "react";
 import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = () => {
+const Header = ({ setToken, setUsername, token }) => {
+  const handleDeConnexion = () => {
+    //deconnexion
+    Cookies.remove("token");
+    Cookies.remove("username");
+    setToken(null);
+    setUsername(null);
+  };
   return (
     <header>
       <div className="container">
@@ -18,8 +27,15 @@ const Header = () => {
             <Link to="/favorite">
               <li>Favoris</li>
             </Link>
-            <Link to="/connexion">
-              <li>Se connecter</li>
+            <Link to="/login">
+              <div>
+                <FontAwesomeIcon icon="user" />
+                {token ? (
+                  <span onClick={handleDeConnexion}>Se déconnecter</span>
+                ) : (
+                  <span>Se connecter</span>
+                )}
+              </div>
             </Link>
           </ul>
         </div>

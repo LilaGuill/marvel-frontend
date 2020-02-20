@@ -26,7 +26,12 @@ const Personnages = () => {
 
   return (
     <div className="container">
-      <SearchBar personnages={personnages} setPersonnages={setPersonnages} />
+      <SearchBar
+        personnages={personnages}
+        setPersonnages={setPersonnages}
+        setPage={setPage}
+        setTotal={setTotal}
+      />
       <Pagination
         setPage={setPage}
         total={total}

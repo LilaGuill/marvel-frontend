@@ -131,3 +131,7 @@ button,
 input {
   overflow: hidden;
 }
+a {
+  text-decoration: none;
+  color: rgb(20, 20, 22);
+}
