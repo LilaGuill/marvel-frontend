@@ -63,7 +63,7 @@ const Favorites = () => {
                 handleRemove(favorite.id);
               }}
             >
-              Remove
+              <p className="underline">Remove</p>
             </span>
           </div>
         </div>

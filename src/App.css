@@ -66,8 +66,8 @@ header .user {
 /*search */
 .wrapper-search {
   height: 150px;
-  background-color: white;
-  width: 60%;
+  background-color: rgb(255, 255, 255);
+  width: 70%;
   margin: 100px auto 40px auto;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(202, 202, 202, 0.2);
@@ -80,17 +80,11 @@ h1 {
   font-size: 20px;
   font-weight: bold;
 }
-.wrapper-search form {
-  width: 70%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-form input {
+
+input {
   padding-left: 10px;
   margin: auto 10px;
-  width: 90%;
+  width: 50%;
   line-height: 40px;
   border-radius: 5px;
   border: none;
@@ -98,9 +92,15 @@ form input {
   outline: none;
   font-size: 16px;
 }
-form button {
+
+.search {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.search-btn {
   width: 150px;
-  line-height: 40px;
   border-radius: 5px;
   outline: none;
   border: none;
@@ -108,12 +108,22 @@ form button {
   color: white;
   cursor: pointer;
   font-size: 16px;
+  line-height: 40px;
 }
-form button:hover {
+.search-btn:hover {
   opacity: 0.8;
   transition: 0.2s;
 }
+.icon-cancel {
+  font-size: 28px;
+  color: rgb(128, 142, 155);
+  cursor: pointer;
+}
 
+.icon-cancel:hover {
+  color: rgb(55, 56, 58);
+  transition: 0.3s;
+}
 /* loader */
 .container-loader {
   width: 80%;
@@ -137,11 +147,16 @@ form button:hover {
 .active {
   background-color: rgb(255, 41, 4);
   color: white;
+  cursor: pointer;
 }
 
 .inactive {
   background-color: transparent;
   color: rgb(167, 167, 167);
+  cursor: pointer;
+}
+.inactive:hover {
+  background-color: rgb(223, 223, 223);
 }
 .pagination {
   display: flex;
@@ -150,6 +165,7 @@ form button:hover {
   width: 70%;
   margin: 0 auto 20px auto;
 }
+
 .loading {
   line-height: 30px;
   text-align: center;
@@ -168,7 +184,6 @@ form button:hover {
   display: flex;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(202, 202, 202, 0.2);
-  flex-wrap: wrap;
 }
 
 .wrapper-list-item:hover {
@@ -202,15 +217,25 @@ form button:hover {
   color: rgb(17, 17, 19);
   text-align: justify;
   margin: 10px;
+  overflow: hidden;
 }
 .favorite {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  width: 40px;
-  margin: 20px;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 120px;
+  width: 100px;
 }
-.icon-heart {
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.underline:hover {
+  font-weight: bold;
+  transition: 0.3s;
+}
+.icon-heart-black {
   font-size: 20px;
   color: rgb(0, 0, 0);
   cursor: pointer;
@@ -218,6 +243,12 @@ form button:hover {
 .icon-heart:hover {
   color: rgb(219, 28, 28);
   transition: 0.3s;
+}
+
+.icon-heart-red {
+  font-size: 20px;
+  color: rgb(219, 28, 28);
+  cursor: pointer;
 }
 .icon-red {
   color: rgb(219, 28, 28);
@@ -266,11 +297,17 @@ form button:hover {
   margin-top: 10px;
 }
 
-.container-form button {
+.form-submit {
   width: 300px;
   font-size: 16px;
   height: 40px;
   margin-top: 25px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: rgb(221, 46, 46);
+  color: white;
+  cursor: pointer;
 }
 .form-second-btn {
   width: 300px;
@@ -282,6 +319,7 @@ form button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
 }
 
 .form-second-btn:hover {

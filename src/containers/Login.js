@@ -69,7 +69,9 @@ const Signin = ({ setToken, setUsername }) => {
           }}
         />
 
-        <button type="submit">Se connecter</button>
+        <button className="form-submit" type="submit">
+          Se connecter
+        </button>
         <div className="form-message">{message}</div>
       </form>
       <hr />

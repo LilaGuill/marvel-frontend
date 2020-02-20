@@ -11,7 +11,8 @@ const Personnages = () => {
   const [personnages, setPersonnages] = useState([]);
   const [total, setTotal] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [pagination, setPagination] = useState(true);
+  console.log(pagination);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post(url, {
@@ -32,20 +33,23 @@ const Personnages = () => {
     <div className="container">
       <SearchBar
         setCollection={setPersonnages}
+        setIsLoading={setIsLoading}
+        page={page}
         setPage={setPage}
         setTotal={setTotal}
         title={"personnage"}
+        setPagination={setPagination}
       />
-      {total !== 0 && (
+      {total !== 0 && pagination ? (
         <Pagination
+          page={page}
           setPage={setPage}
           total={total}
-          page={page}
+          isLoading={isLoading}
           setIsLoading={setIsLoading}
           itemsPerPage={100}
-          isLoading={isLoading}
         />
-      )}
+      ) : null}
       {isLoading ? (
         <div className="container-loader">
           <Loading />

@@ -76,7 +76,9 @@ const Signup = ({ setToken }) => {
             setConfirmPassword(event.target.value);
           }}
         />
-        <button type="submit">S'inscrire</button>
+        <button className="form-submit" type="submit">
+          S'inscrire
+        </button>
       </form>
       <div className="form-message">{message}</div>
     </div>

@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Personnages from "./containers/Personnages";
 import Comics from "./containers/Comics";
+import Favorites from "./containers/Favorites";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
-import Favorites from "./containers/Favorites";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
+import Footer from "./components/Footer";
 import Cookies from "js-cookie";
 import TokenContext from "./contexts/TokenContext";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faChevronLeft,
   faChevronRight,
   faHeart,
-  faUser
+  faUser,
+  faTimesCircle
 } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 
-library.add(faChevronLeft, faChevronRight, faHeart, faUser);
+library.add(faChevronLeft, faChevronRight, faHeart, faUser, faTimesCircle);
 
 const App = () => {
   const [token, setToken] = useState(null);

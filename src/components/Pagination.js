@@ -2,12 +2,12 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Pagination = ({
+  page,
   setPage,
   total,
-  page,
+  isLoading,
   setIsLoading,
-  itemsPerPage,
-  isLoading
+  itemsPerPage
 }) => {
   const pagination = [];
 

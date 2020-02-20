@@ -13,6 +13,7 @@ const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [total, setTotal] = useState(0);
   const { id } = useParams();
+  const [pagination, setPagination] = useState(true);
 
   useEffect(() => {
     const fetchData = async id => {
@@ -38,10 +39,14 @@ const Comics = () => {
         comics={comics}
         setCollection={setComics}
         setPage={setPage}
+        page={page}
         setTotal={setTotal}
+        setIsLoading={setIsLoading}
+        isLoading={isLoading}
+        setPagination={setPagination}
         title={"comics"}
       />
-      {total !== 0 && (
+      {total !== 0 && pagination ? (
         <Pagination
           setPage={setPage}
           total={total}
@@ -50,7 +55,7 @@ const Comics = () => {
           itemsPerPage={3000}
           isLoading={isLoading}
         />
-      )}
+      ) : null}
       {isLoading ? (
         <div className="container-loader">
           <Loading />

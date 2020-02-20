@@ -1,11 +1,10 @@
 import React from "react";
-import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import logo from "../images/logo.png";
 
 const Header = ({ setToken, setUsername, token, username }) => {
   const handleDeConnexion = () => {
-    //deconnexion
     Cookies.remove("token");
     Cookies.remove("username");
     setToken(null);
@@ -27,13 +26,11 @@ const Header = ({ setToken, setUsername, token, username }) => {
               <li>Favoris</li>
             </Link>
             <Link to="/login">
-              <div>
-                {token ? (
-                  <li onClick={handleDeConnexion}>Se déconnecter</li>
-                ) : (
-                  <li>Se connecter</li>
-                )}
-              </div>
+              {token ? (
+                <li onClick={handleDeConnexion}>Déconnexion</li>
+              ) : (
+                <li>Se connecter</li>
+              )}
             </Link>
             <li className="header-user">{username}</li>
           </ul>
