@@ -24,7 +24,6 @@ const Search = ({
       setCollection(response.data.results);
       setTotal(response.data.total);
       setIsLoading(false);
-      setSearch("");
     } else {
       const response = await axios.post(`${url}/search/comics`, {
         search
@@ -32,7 +31,6 @@ const Search = ({
       setCollection(response.data.results);
       setTotal(response.data.total);
       setIsLoading(false);
-      setSearch("");
     }
   };
   const handleReset = async () => {
