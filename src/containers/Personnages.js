@@ -12,7 +12,7 @@ const Personnages = () => {
   const [total, setTotal] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [pagination, setPagination] = useState(true);
-  console.log(pagination);
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post(url, {
