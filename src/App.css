@@ -117,7 +117,7 @@ form button:hover {
 /* loader */
 .container-loader {
   width: 80%;
-  height: 400px;
+  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,6 +169,10 @@ form button:hover {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(202, 202, 202, 0.2);
   flex-wrap: wrap;
+}
+
+.wrapper-list-item:hover {
+  box-shadow: 0 0 10px rgba(202, 202, 202, 0.9);
 }
 .wrapper-list {
   width: 90%;
@@ -223,13 +227,14 @@ form button:hover {
 
 .container-form {
   width: 80%;
-  height: 400px;
+  height: 600px;
   background-color: white;
   box-shadow: 0 0 10px rgba(202, 202, 202, 0.2);
   margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   border-radius: 5px;
 }
 .wrapper-form-login {
@@ -242,13 +247,13 @@ form button:hover {
 .wrapper-form-signup {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 280px;
   margin: 0 auto;
   align-items: center;
 }
 
 .container-form h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 30px;
   margin-top: 20px;
@@ -270,7 +275,7 @@ form button:hover {
 .form-second-btn {
   width: 300px;
   line-height: 40px;
-  background-color: gray;
+  background-color: rgb(119, 130, 155);
   color: white;
   margin: 20px 0;
   border-radius: 5px;
@@ -278,10 +283,15 @@ form button:hover {
   justify-content: center;
   align-items: center;
 }
+
+.form-second-btn:hover {
+  background-color: rgb(96, 108, 134);
+  transition: 0.4s;
+}
 .container-form hr {
-  margin: 25px auto;
+  margin: 10px auto;
   width: 300px;
-  background-color: rgb(237, 237, 237);
+  border: 0.5px rgb(209, 209, 209) solid;
 }
 .container-form a {
   color: white;
@@ -291,17 +301,33 @@ form button:hover {
   color: red;
   font-weight: bold;
 }
+.container-form h3 {
+  text-align: center;
+  font-size: 16px;
+}
 /* favorites */
 
 .favorites-container {
   width: 70%;
   margin: 100px auto;
 }
+.not-found {
+  margin: 0 auto;
+  width: 70%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+}
 footer {
-  height: 60px;
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(20, 20, 22);
+  color: black;
 }

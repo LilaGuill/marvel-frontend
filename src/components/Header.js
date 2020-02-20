@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = ({ setToken, setUsername, token, username }) => {
   const handleDeConnexion = () => {

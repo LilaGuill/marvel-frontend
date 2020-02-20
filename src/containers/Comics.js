@@ -5,9 +5,9 @@ import Comic from "../components/Comic";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
+import url from "../utils/url";
 
 const Comics = () => {
-  console.log("page comics");
   const [page, setPage] = useState(1);
   const [comics, setComics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +16,7 @@ const Comics = () => {
 
   useEffect(() => {
     const fetchData = async id => {
-      const response = await axios.post("http://localhost:3000/comics", {
+      const response = await axios.post(`${url}/comics`, {
         id,
         page
       });
@@ -34,22 +34,36 @@ const Comics = () => {
 
   return (
     <div className="container">
-      <SearchBar />
-      <Pagination
+      <SearchBar
+        comics={comics}
+        setCollection={setComics}
         setPage={setPage}
-        total={total}
-        page={page}
-        setIsLoading={setIsLoading}
-        itemsPerPage={3000}
+        setTotal={setTotal}
+        title={"comics"}
       />
+      {total !== 0 && (
+        <Pagination
+          setPage={setPage}
+          total={total}
+          page={page}
+          setIsLoading={setIsLoading}
+          itemsPerPage={3000}
+          isLoading={isLoading}
+        />
+      )}
       {isLoading ? (
         <div className="container-loader">
           <Loading />
         </div>
       ) : (
-        <div>{listComics}</div>
+        <div>
+          {listComics.length ? (
+            listComics
+          ) : (
+            <div className="not-found">Aucun Résultat trouvé</div>
+          )}
+        </div>
       )}
-      div>}
     </div>
   );
 };

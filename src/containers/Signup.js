@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
+import url from "../utils/url";
 
 const Signup = ({ setToken }) => {
   const [username, setUsername] = useState("");
@@ -21,10 +22,7 @@ const Signup = ({ setToken }) => {
         confirmPassword: confirmPassword
       };
 
-      const response = await axios.post(
-        "http://localhost:3000/user/signup",
-        body
-      );
+      const response = await axios.post(`${url}/user/signup`, body);
       //enregistrement du token dans les cookies
       const token = response.data.token;
       Cookies.set("token", token, { expires: 7 });
@@ -40,6 +38,7 @@ const Signup = ({ setToken }) => {
   return (
     <div className="container-form">
       <h2>Inscrivez-vous</h2>
+
       <form className="wrapper-form-signup" onSubmit={handleSubmit}>
         <input
           type="text"

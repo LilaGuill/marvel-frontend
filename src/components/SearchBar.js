@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
+import url from "../utils/url";
 
-const Search = ({ personnages, setPersonnages, setTotal }) => {
+const Search = ({ setCollection, setTotal, title }) => {
   const [search, setSearch] = useState("");
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const response = await axios.post("http://localhost:3000/search", {
-      search
-    });
-    console.log(response);
-    setPersonnages(response.data.results);
-    setTotal(response.data.total);
+    if (title === "personnage") {
+      const response = await axios.post(`${url}/search/charactere`, {
+        search
+      });
+
+      setCollection(response.data.results);
+      setTotal(response.data.total);
+    } else {
+      const response = await axios.post(`${url}/search/comics`, {
+        search
+      });
+      setCollection(response.data.results);
+      setTotal(response.data.total);
+    }
+
     try {
     } catch (error) {
       console.error({ message: error.message });
@@ -29,7 +39,7 @@ const Search = ({ personnages, setPersonnages, setTotal }) => {
 
   return (
     <div className="wrapper-search">
-      <h1>Quel personnage recherchez-vous ?</h1>
+      <h1>Quel {title} recherchez-vous ?</h1>
       <form onSubmit={handleSubmit}>
         <input
           placeholder="Votre recherche"
@@ -37,7 +47,6 @@ const Search = ({ personnages, setPersonnages, setTotal }) => {
           value={search}
           onChange={event => {
             setSearch(event.target.value);
-            setPersonnages(personnages);
           }}
         ></input>
         <button type="submit">Rechercher</button>

@@ -4,8 +4,9 @@ import Personnage from "../components/Personnage";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
+import url from "../utils/url";
 
-const Personnages = ({ token }) => {
+const Personnages = () => {
   const [page, setPage] = useState(1);
   const [personnages, setPersonnages] = useState([]);
   const [total, setTotal] = useState(0);
@@ -13,7 +14,9 @@ const Personnages = ({ token }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.post("http://localhost:3000/", { page });
+      const response = await axios.post(url, {
+        page
+      });
       setPersonnages(response.data.results);
       setTotal(response.data.total);
       setIsLoading(false);
@@ -28,24 +31,33 @@ const Personnages = ({ token }) => {
   return (
     <div className="container">
       <SearchBar
-        personnages={personnages}
-        setPersonnages={setPersonnages}
+        setCollection={setPersonnages}
         setPage={setPage}
         setTotal={setTotal}
+        title={"personnage"}
       />
-      <Pagination
-        setPage={setPage}
-        total={total}
-        page={page}
-        setIsLoading={setIsLoading}
-        itemsPerPage={100}
-      />
+      {total !== 0 && (
+        <Pagination
+          setPage={setPage}
+          total={total}
+          page={page}
+          setIsLoading={setIsLoading}
+          itemsPerPage={100}
+          isLoading={isLoading}
+        />
+      )}
       {isLoading ? (
         <div className="container-loader">
           <Loading />
         </div>
       ) : (
-        <div>{listItem}</div>
+        <div>
+          {listItem.length ? (
+            listItem
+          ) : (
+            <div className="not-found">Aucun résultat trouvé</div>
+          )}
+        </div>
       )}
     </div>
   );

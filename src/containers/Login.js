@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import url from "../utils/url";
 
 const Signin = ({ setToken, setUsername }) => {
   let history = useHistory();
@@ -12,28 +13,31 @@ const Signin = ({ setToken, setUsername }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
+
     if (email && password) {
       const body = {
         email: email,
         password: password
       };
-      const response = await axios.post(
-        "http://localhost:3000/user/login",
-        body
-      );
+      try {
+        const response = await axios.post(`${url}/user/login`, body);
 
-      //enregistrement du token dans les cookies
-      const token = response.data.token;
-      const username = response.data.account.username;
-      Cookies.set("token", token, { expires: 7 });
-      Cookies.set("username", username, { expires: 7 });
+        //enregistrement du token dans les cookies
+        const token = response.data.token;
+        const username = response.data.account.username;
+        Cookies.set("token", token, { expires: 7 });
+        Cookies.set("username", username, { expires: 7 });
 
-      //mise a jour du state
-      setToken(token);
-      setUsername(username);
-      console.log(username);
-      //redirection vers la page home
-      history.push("/");
+        //mise a jour du state
+        setToken(token);
+        setUsername(username);
+
+        //redirection vers la page home
+        history.push("/");
+      } catch (error) {
+        console.error(error.message);
+        history.push("/signup");
+      }
     } else {
       setMessage("Veuillez indiquer votre email et mot de passe ");
     }
@@ -68,12 +72,14 @@ const Signin = ({ setToken, setUsername }) => {
         <button type="submit">Se connecter</button>
         <div className="form-message">{message}</div>
       </form>
-      <hr></hr>
-      <span>Vous n'avez pas de compte ?</span>
+      <hr />
+      <div>
+        <h3>Vous n'avez pas de compte ?</h3>
 
-      <button className="form-second-btn">
-        <Link to="/signup">Créer un compte</Link>
-      </button>
+        <button className="form-second-btn">
+          <Link to="/signup">Créer un compte</Link>
+        </button>
+      </div>
     </div>
   );
 };

@@ -5,23 +5,21 @@ import { useState } from "react";
 import Loading from "../components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
+import url from "../utils/url";
 
 const Favorites = () => {
-  const history = useHistory();
   const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState("true");
   const token = useContext(TokenContext);
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async token => {
       try {
-        const response = await axios.post(
-          "http://localhost:3000/user/favorites",
-          {
-            token
-          }
-        );
-        // console.log(response.data[0].favorites);
+        const response = await axios.post(`${url}/user/favorites`, {
+          token
+        });
+
         setFavorites([...response.data[0].favorites]);
         setIsLoading(false);
       } catch (error) {
@@ -33,10 +31,10 @@ const Favorites = () => {
 
   const handleRemove = async id => {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/user/favorites/remove",
-        { id: id, token: token }
-      );
+      const response = await axios.post(`${url}/user/favorites/remove`, {
+        id: id,
+        token: token
+      });
 
       setFavorites([...response.data.favorites]);
       history.push("/favorites");

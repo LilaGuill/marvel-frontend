@@ -55,7 +55,11 @@ const App = () => {
             <Personnages />
           </Route>
           <Route path="/favorites">
-            <Favorites />
+            {!token ? (
+              <Login setToken={setToken} setUsername={setUsername} />
+            ) : (
+              <Favorites />
+            )}
           </Route>
         </Switch>
         <Footer />
