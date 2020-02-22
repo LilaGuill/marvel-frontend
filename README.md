@@ -1,11 +1,11 @@
-<h1 align="center">Marvel</h1>
+<h1 align="center">Marvel frontend</h1>
 
 <p align="center">
-  <img width="500" src="https://github.com/LilaGuill/marvel-front/blob/master/public/screen.png" alt="capture-1">
+  <img width="500" src="https://github.com/LilaGuill/marvel-frontend/blob/master/public/screen.png" alt="capture-1">
 </p>
 
 <p align="center">
-  Demo:<a href="https://leboncoin-frontend.netlify.com/" target="_blank">https://marvel-lg.netlify.com/</a>
+  Demo:<a href="https://marvel-lg.netlify.com/" target="_blank">https://marvel-lg.netlify.com/</a>
 </p>
 <p align="center">
  This project was bootstrapped with <a href=https://github.com/facebook/create-react-app. target="_blank">Create React App</a>
@@ -38,8 +38,8 @@
 Clone this repository :
 
 ```
-git clone https://github.com/LilaGuill/marvel-front.git
-cd marvel-front
+git clone https://github.com/LilaGuill/marvel-frontend.git
+cd marvel-frontend
 ```
 
 Install packages :
@@ -74,7 +74,7 @@ npm start
 
 ## Leboncoin API
 
-<a href="https://github.com/LilaGuill/marvel-back">https://github.com/LilaGuill/marvel-back</a>
+<a href="https://github.com/LilaGuill/marvel-backend.git">https://github.com/LilaGuill/marvel-backend.git</a>
 
 ## Deployment
 
