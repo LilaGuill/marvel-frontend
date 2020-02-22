@@ -17,14 +17,14 @@
 
 **Functionalities**
 
-- Get characters : axios request from Api https://github.com/LilaGuill/marvel-back
-- Get comics : axios request from Api https://github.com/LilaGuill/marvel-back
+- Get characters : axios request from Api
+- Get comics : axios request from Api
 - Authentication :
   - signup : create an account saved in mongoDB database
   - signin : verify in mongoDB database if the account is register
   - cookies : set or remove token from cookie
-- Add some comics or charactres to favorites, saved in mongoDB database
-- Remove comics or characteres from favorites, remove from mongoDB database
+- Add some comics or characters to favorites, saved in mongoDB database
+- Remove comics or characters from favorites, remove from mongoDB database
 
 **UI**
 
@@ -56,7 +56,7 @@ npm start
 
 ## Client
 
-- Hooks (useState, useEffect)
+- Hooks (useState, useEffect, useContext)
 - HTTP request with axios (get, post)
 - Routing with react-router-dom
 - Handle cookies whith js-cookies
@@ -69,7 +69,6 @@ npm start
 - Mongoose
 - Crypto-js
 - Uid2
-- Stripe
 - Cors
 - Dotenv
 
