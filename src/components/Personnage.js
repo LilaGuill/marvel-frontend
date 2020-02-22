@@ -8,13 +8,13 @@ const Personnage = ({ name, id, description, thumbnail }) => {
   return (
     <>
       <div key={id} className="wrapper-list-item">
-        <Link to={"/comics/" + id} className="wrapper-list">
+        <Link to={"/comic/" + id} className="wrapper-list">
           <Images src={imgSrc} name={name} />
           <div className="wrapper-detail">
             <div className="item-title">{name}</div>
-            <p className="item-paragraphe">
+            <div className="item-paragraphe">
               {description ? description : "Description not available"}
-            </p>
+            </div>
           </div>
         </Link>
         <Favorite

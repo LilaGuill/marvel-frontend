@@ -2,7 +2,7 @@ import React from "react";
 import Images from "./Images";
 import Favorite from "./Favorite";
 
-const Personnage = ({ title, id, description, thumbnail }) => {
+const ItemList = ({ title, id, description, thumbnail }) => {
   const imgSrc = `${thumbnail.path}.${thumbnail.extension}`;
   return (
     <div key={title} className="wrapper-list-item">
@@ -27,4 +27,4 @@ const Personnage = ({ title, id, description, thumbnail }) => {
   );
 };
 
-export default Personnage;
+export default ItemList;

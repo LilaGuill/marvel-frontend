@@ -1,30 +1,25 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import ItemList from "../components/Comic";
 import SearchBar from "../components/SearchBar";
-import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
 import url from "../utils/url";
-import ItemList from "../components/Comic";
 
-const Comics = () => {
-  const [pagination, setPagination] = useState(true);
+const Comic = () => {
   const [page, setPage] = useState(1);
   const [comics, setComics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [total, setTotal] = useState(0);
+  const { id } = useParams();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.post(`${url}/comics`, {
-        page
-      });
+    const fetchData = async id => {
+      const response = await axios.get(`${url}/comic/${id}`);
       setComics([...response.data.results]);
       setIsLoading(false);
-      setTotal(response.data.total);
     };
-
-    fetchData();
-  }, [page]);
+    fetchData(id);
+  }, [id]);
 
   const listComics = comics.map((comic, index) => {
     return <ItemList key={index} {...comic} />;
@@ -37,22 +32,11 @@ const Comics = () => {
         setCollection={setComics}
         setPage={setPage}
         page={page}
-        setTotal={setTotal}
         setIsLoading={setIsLoading}
         isLoading={isLoading}
-        setPagination={setPagination}
         title={"comics"}
       />
-      {total !== 0 && pagination ? (
-        <Pagination
-          setPage={setPage}
-          total={total}
-          page={page}
-          setIsLoading={setIsLoading}
-          itemsPerPage={3000}
-          isLoading={isLoading}
-        />
-      ) : null}
+
       {isLoading ? (
         <div className="container-loader">
           <Loading />
@@ -70,4 +54,4 @@ const Comics = () => {
   );
 };
 
-export default Comics;
+export default Comic;

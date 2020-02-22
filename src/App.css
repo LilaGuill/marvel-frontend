@@ -9,7 +9,7 @@ body {
   font-size: 14px;
   color: rgb(20, 20, 22);
   width: 100%;
-  min-height: 100%;
+  height: 100vh;
 }
 /* communs */
 .container {
@@ -213,6 +213,7 @@ input {
 }
 
 .item-paragraphe {
+  width: 80%;
   font-size: 14px;
   color: rgb(17, 17, 19);
   text-align: justify;
@@ -360,12 +361,43 @@ input {
   font-size: 20px;
 }
 footer {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 60px;
   bottom: 0;
   left: 0;
   right: 0;
-  color: black;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* mediaqueries */
+@media (max-width: 800px) {
+  .container,
+  .wrapper-search,
+  .wrapper-form-signup,
+  .form-second-btn,
+  .favorites-container {
+    width: 100%;
+  }
+  .header ul,
+  li,
+  .pagination,
+  .item-paragraphe,
+  .underline {
+    display: none;
+  }
+  .wrapper-header {
+    justify-content: center;
+  }
+  .image-list-item {
+    width: 50%;
+  }
+  .form-submit,
+  .container-form input {
+    width: 80%;
+  }
 }

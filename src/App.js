@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Personnages from "./containers/Personnages";
 import Comics from "./containers/Comics";
+import Comic from "./containers/Comic";
 import Favorites from "./containers/Favorites";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
@@ -42,7 +43,10 @@ const App = () => {
           setUsername={setUsername}
         />
         <Switch>
-          <Route path="/comics/:id">
+          <Route path="/comic/:id">
+            <Comic />
+          </Route>
+          <Route path="/comics/">
             <Comics />
           </Route>
           <Route path="/login">
