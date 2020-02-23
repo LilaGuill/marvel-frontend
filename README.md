@@ -17,19 +17,18 @@
 
 **Functionalities**
 
-- Get characters : axios request from Api
-- Get comics : axios request from Api
+- Get characters : axios request from API
+- Get comics : axios request from API
 - Authentication :
   - signup : create an account saved in mongoDB database
   - signin : verify in mongoDB database if the account is register
   - cookies : set or remove token from cookie
-- Add some comics or characters to favorites, saved in mongoDB database
+- Add comics or characters to favorites, saved in mongoDB database
 - Remove comics or characters from favorites, remove from mongoDB database
 
 **UI**
 
 - Homemade UI without framework
-- Pretty responsive
 
 **Dependencies**
 
@@ -56,6 +55,7 @@ npm start
 
 ## Client
 
+- React
 - Hooks (useState, useEffect, useContext)
 - HTTP request with axios (get, post)
 - Routing with react-router-dom
@@ -63,6 +63,7 @@ npm start
 
 ## Server
 
+- Node.js
 - Express
 - Express-formidable
 - Axios
