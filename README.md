@@ -1,7 +1,7 @@
 <h1 align="center">Marvel frontend</h1>
 
 <p align="center">
-  <img width="500" src="https://github.com/LilaGuill/marvel-frontend/blob/master/public/screen.png" alt="capture-1">
+  <img width="500" src="https://github.com/LilaGuill/marvel-frontend/blob/master/public/Kapture.gif" alt="capture-1">
 </p>
 
 <p align="center">
